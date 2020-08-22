@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="
+    	http://www.springframework.org/schema/beans 
+    	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd 
+    	http://www.springframework.org/schema/tx 
+    	http://www.springframework.org/schema/tx/spring-tx-4.3.xsd 
+    	http://www.springframework.org/schema/aop 
+    	http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">   
+    	<property name="driverClassName" value="com.mysql.jdbc.Driver"/>   
+    	<property name="url" value="jdbc:mysql://localhost:3306/shop"/>   
+    	<property name="username" value="root"/>   
+    	<property name="password" value="1314520"/>      
+  	</bean>
+	
+    <!-- Spring整合Hibernate -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    	<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+    </bean>
+    
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+    	<property name="sessionFactory" ref="sessionFactory"></property>
+    	<property name="checkWriteOperations" value="false"></property>
+    </bean>
+     
+    <!-- 事务管理 -->
+    <bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+    	<property name="sessionFactory" ref="sessionFactory"></property>
+    	<property name="dataSource" ref="dataSource"></property>
+    </bean>
+    
+    <!-- 增强事务  -->
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+    	<tx:attributes>
+    		<tx:method name="save*"/>
+    		<tx:method name="update*"/>
+    		<tx:method name="delete*"/>
+    		<tx:method name="find*" read-only="true"/>
+    	</tx:attributes>
+    </tx:advice>
+	
+	
+	<aop:config>
+    	<aop:pointcut expression="execution(* com.troyforever.shop.dao.*.*(..))" id="daoMethod"/>
+    	<aop:advisor advice-ref="txAdvice" pointcut-ref="daoMethod"/>
+    </aop:config> 
+
+    
+    <bean id="pageDao" class="com.troyforever.shop.dao.PageDao">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    
+    <bean id="categoryDao" class="com.troyforever.shop.dao.CategoryImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    	<property name="pageDao" ref="pageDao"></property>
+    </bean>
+    
+    <bean id="userDao" class="com.troyforever.shop.dao.UserImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    	<property name="pageDao" ref="pageDao"></property>
+    </bean>
+    
+    <bean id="addressDao" class="com.troyforever.shop.dao.AddressImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    	<property name="pageDao" ref="pageDao"></property>
+    </bean>
+    
+    <bean id="validateDao" class="com.troyforever.shop.dao.ValidateImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    	<property name="pageDao" ref="pageDao"></property>
+    </bean>
+    
+    <bean id="goodsDao" class="com.troyforever.shop.dao.GoodsImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    	<property name="pageDao" ref="pageDao"></property>
+    </bean>
+    
+    <bean id="labelDao" class="com.troyforever.shop.dao.LabelImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    
+    <bean id="attributeDao" class="com.troyforever.shop.dao.AttributeImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    
+    <bean id="cartDao" class="com.troyforever.shop.dao.CartImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    
+    <bean id="orderDao" class="com.troyforever.shop.dao.OrderImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    	<property name="pageDao" ref="pageDao"></property>
+    </bean>
+    
+    <bean id="itemDao" class="com.troyforever.shop.dao.ItemImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    
+    <bean id="commentDao" class="com.troyforever.shop.dao.CommentImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    	<property name="pageDao" ref="pageDao"></property>
+    </bean>
+    
+    <bean id="collectDao" class="com.troyforever.shop.dao.CollectImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    	<property name="pageDao" ref="pageDao"></property>
+    </bean>
+    
+    <bean id="roleDao" class="com.troyforever.shop.dao.RoleImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    
+	<bean id="userRoleDao" class="com.troyforever.shop.dao.UserRoleImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    
+    <bean id="privilegeDao" class="com.troyforever.shop.dao.PrivilegeImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    
+    <bean id="rolePrivilegeDao" class="com.troyforever.shop.dao.RolePrivilegeImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    
+    <bean id="logLoginDao" class="com.troyforever.shop.dao.LogLoginImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    	<property name="pageDao" ref="pageDao"></property>
+    </bean>
+    
+   	<bean id="logOperateDao" class="com.troyforever.shop.dao.LogOperateImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    	<property name="pageDao" ref="pageDao"></property>
+    </bean>
+</beans>

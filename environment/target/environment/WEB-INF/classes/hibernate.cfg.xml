@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    	<property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">1314520</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/application?useSSL=false</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.default_schema">application</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="format_sql">true</property>
+        
+       
+		<mapping resource="com/troyforever/shop/bean/User.hbm.xml"/>
+		<mapping resource="com/troyforever/shop/bean/Address.hbm.xml"/>
+		<mapping resource="com/troyforever/shop/bean/Validate.hbm.xml"/>
+		<mapping resource="com/troyforever/shop/bean/Category.hbm.xml"/>
+		<mapping resource="com/troyforever/shop/bean/Goods.hbm.xml"/>
+		<mapping resource="com/troyforever/shop/bean/Label.hbm.xml"/>
+		<mapping resource="com/troyforever/shop/bean/Attribute.hbm.xml"/>
+		<mapping resource="com/troyforever/shop/bean/Cart.hbm.xml"/>
+		<mapping resource="com/troyforever/shop/bean/Order.hbm.xml"/>
+		<mapping resource="com/troyforever/shop/bean/Item.hbm.xml"/>
+		<mapping resource="com/troyforever/shop/bean/Collect.hbm.xml"/>
+		<mapping resource="com/troyforever/shop/bean/Comment.hbm.xml"/>
+		<mapping resource="com/troyforever/shop/bean/Role.hbm.xml"/>
+		<mapping resource="com/troyforever/shop/bean/Privilege.hbm.xml"/>
+		<mapping resource="com/troyforever/shop/bean/UserRole.hbm.xml"/>
+		<mapping resource="com/troyforever/shop/bean/RolePrivilege.hbm.xml"/>
+		<mapping resource="com/troyforever/shop/bean/LogLogin.hbm.xml"/>
+		<mapping resource="com/troyforever/shop/bean/LogOperate.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-9-29 19:03:44 by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="com.troyforever.env.bean.User" dynamic-insert="true" table="user" catalog="application" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="10" not-null="true" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="11" not-null="true" />
+        </property>
+        <property name="username" type="string">
+            <column name="username" length="16" not-null="true" unique="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="16" not-null="true" />
+        </property>
+        <property name="isAdmin" type="java.lang.Integer">
+        	<column name="isAdmin" length="6" default="0"></column>
+        </property>
+
+        <set name="userSheds" table="user_shed" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="userId" not-null="true" />
+            </key>
+            <one-to-many class="com.troyforever.env.bean.UserShed" />
+        </set>
+        <set name="settings" table="setting" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="userId" not-null="true" />
+            </key>
+            <one-to-many class="com.troyforever.env.bean.Setting" />
+        </set>
+        <set name="logOpes" table="log_ope" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="userId" not-null="true" />
+            </key>
+            <one-to-many class="com.troyforever.env.bean.LogOpe" />
+        </set>
+        
+        <many-to-one name="base" class="com.troyforever.env.bean.Base" fetch="select" lazy="false">
+            <column name="baseId" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

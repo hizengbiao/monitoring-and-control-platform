@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background1"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.plantapp1_0_0.LoginActivity" >
+
+    <TextView
+        android:id="@+id/TextView0"
+        style="@style/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="20dip"
+        android:paddingTop="20dip"
+        android:text="@string/LoginTittle" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/LoginSucTip"
+        style="@style/tips"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="20dip"
+        android:paddingTop="20dip"
+        android:text="@string/LoginSucTip" >
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingTop="25dp" >
+
+        <TextView
+            style="@style/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:text="@string/LoginId" />
+
+        <EditText
+            android:id="@+id/loginid"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center_vertical"
+            android:text="@string/LoginPsw" />
+
+        <EditText
+            android:id="@+id/loginpsw"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="20dip"
+        android:paddingTop="20dip" >
+ 
+ <CheckBox 
+		    android:id="@+id/cbRemember"
+			android:text="@string/cbRemember"
+			style="@style/text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_vertical"
+			android:checked="false"
+			/>
+
+        <Button
+            android:id="@+id/btnLogin"
+            style="@style/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="70dip"
+            android:text="@string/btnLogin" />
+
+        <Button
+            android:id="@+id/btnReg"
+            style="@style/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" 
+            android:minWidth="70dip"
+            android:text="@string/btnReg" />
+    </LinearLayout>
+
+</LinearLayout>

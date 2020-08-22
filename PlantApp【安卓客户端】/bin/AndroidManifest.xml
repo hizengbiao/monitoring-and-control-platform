@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.plantapp1_0_0"
+    android:versionCode="2"
+    android:versionName="2.1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="20" />
+   <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/lau_ico"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivityQue"
+            android:label="@string/btnQue" >
+        </activity>
+        <activity
+            android:name=".MainActivityCtr"
+            android:label="@string/btnCtr" >
+        </activity>
+        <activity
+            android:name=".MainActivityHis"
+            android:label="@string/btnHis" >
+        </activity>
+        <activity
+            android:name=".MainActivitySet"
+            android:label="@string/btnSet" >
+        </activity>
+    </application>
+    
+ 
+
+</manifest>

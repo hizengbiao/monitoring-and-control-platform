@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="
+    	http://www.springframework.org/schema/beans 
+    	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd 
+    	http://www.springframework.org/schema/tx 
+    	http://www.springframework.org/schema/tx/spring-tx-4.3.xsd 
+    	http://www.springframework.org/schema/aop 
+    	http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">   
+    	<property name="driverClassName" value="com.mysql.jdbc.Driver"/>   
+    	<property name="url" value="jdbc:mysql://localhost:3306/application"/>   
+    	<property name="username" value="root"/>   
+    	<property name="password" value="1314520"/>      
+  	</bean>
+	
+    <!-- Spring整合Hibernate -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    	<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+    </bean>
+    
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+    	<property name="sessionFactory" ref="sessionFactory"></property>
+    	<property name="checkWriteOperations" value="false"></property>
+    </bean>
+     
+    <!-- 事务管理 -->
+    <bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+    	<property name="sessionFactory" ref="sessionFactory"></property>
+    	<property name="dataSource" ref="dataSource"></property>
+    </bean>
+    
+    <!-- 增强事务  -->
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+    	<tx:attributes>
+    		<tx:method name="save*"/>
+    		<tx:method name="update*"/>
+    		<tx:method name="delete*"/>
+    		<tx:method name="find*" read-only="true"/>
+    	</tx:attributes>
+    </tx:advice>
+	
+	
+	<aop:config>
+    	<aop:pointcut expression="execution(* com.troyforever.env.dao.*.*(..))" id="daoMethod"/>
+    	<aop:advisor advice-ref="txAdvice" pointcut-ref="daoMethod"/>
+    </aop:config> 
+    
+    <bean id="baseDao" class="com.troyforever.env.dao.BaseImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    <bean id="corpDao" class="com.troyforever.env.dao.CorpImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    <bean id="logEnvDao" class="com.troyforever.env.dao.LogEnvImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    <bean id="logOpeDao" class="com.troyforever.env.dao.LogOpeImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    <bean id="settingDao" class="com.troyforever.env.dao.SettingImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    <bean id="shedCorpDao" class="com.troyforever.env.dao.ShedCorpImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    <bean id="shedDao" class="com.troyforever.env.dao.ShedImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    <bean id="userDao" class="com.troyforever.env.dao.UserImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    <bean id="userShedDao" class="com.troyforever.env.dao.UserShedImpl">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+
+</beans>

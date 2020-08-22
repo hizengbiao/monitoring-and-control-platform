@@ -1,0 +1,141 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="title">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">#f37301</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="tips">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#4169E1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#8B3626</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="table_elem">
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/table_frame_gray</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">#f37301</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="table_elem1">
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/table_frame_gray</item>
+        <item name="android:layout_width">wrap_content</item>
+         <item name="android:layout_height">50sp</item>
+        <item name="android:textColor">#B23AEE</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="button">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#f37301</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="button_choose">
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@drawable/choose</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:textColor">#f37301</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="button_unchoose">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#f37301</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:background">@drawable/unchoose</item>
+    </style>
+
+    <style name="button_fresh">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#f37301</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_width">60dp</item>
+        <item name="android:text">@string/btnRefresh</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_fresh</item>
+    </style>
+
+    <style name="spin">
+        <item name="android:textSize">40sp</item>
+        <item name="android:textColor">#f37301</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="LoginSucDiagTitle">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">#FF0000</item>
+    </style>
+
+    <style name="MyToggleButton" parent="@android:style/Widget.CompoundButton">
+        <item name="android:button">@drawable/setting_checkbox_button</item>
+    </style>
+
+    <style name="MySeekBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxHeight">15dp</item>
+        <item name="android:minHeight">15dp</item>
+        <item name="android:max">100</item>
+        <item name="android:progress">50</item>
+        <item name="android:layout_marginLeft">0dp</item>
+        <item name="android:secondaryProgress">0</item>
+        <item name="android:progressDrawable">@drawable/effect_seekbar_style</item>
+        <item name="android:thumb">@drawable/slide_one</item>
+        <item name="android:thumbOffset">0dp</item>
+    </style>
+
+    <style name="vaule">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/empty</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#8B3626</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    	<property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">1314520</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/application?useSSL=false</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.default_schema">application</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="format_sql">true</property>
+        
+       
+		<mapping resource="com/troyforever/env/bean/Base.hbm.xml"/>
+		<mapping resource="com/troyforever/env/bean/Corp.hbm.xml"/>
+		<mapping resource="com/troyforever/env/bean/LogEnv.hbm.xml"/>
+		<mapping resource="com/troyforever/env/bean/LogOpe.hbm.xml"/>
+		<mapping resource="com/troyforever/env/bean/Setting.hbm.xml"/>
+		<mapping resource="com/troyforever/env/bean/Shed.hbm.xml"/>
+		<mapping resource="com/troyforever/env/bean/ShedCorp.hbm.xml"/>
+		<mapping resource="com/troyforever/env/bean/User.hbm.xml"/>
+		<mapping resource="com/troyforever/env/bean/UserShed.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>

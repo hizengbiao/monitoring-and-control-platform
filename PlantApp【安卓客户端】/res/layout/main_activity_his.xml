@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background3"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"        
+        android:orientation="horizontal" >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        
+          <TextView
+                    android:id="@+id/chooseTip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_column="0"
+                    android:layout_marginTop="30dp"
+                    android:text="请选择："
+                    android:textSize="20sp" >
+                </TextView>
+        </LinearLayout>
+        
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+         android:gravity="center"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+            <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TableRow>
+
+              
+
+                <Button
+                    android:id="@+id/dateChoose1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:text="开始日期"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/dateChoose2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"              
+                    android:layout_column="1"
+                    android:text="结束日期"
+                    android:textSize="20sp" />
+            </TableRow>
+
+            <TableRow>
+
+                <Spinner
+                    android:id="@+id/spinner_greenhouse2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:textSize="30sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                   android:layout_column="1"
+                    android:textSize="30sp" />
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/line_query"
+                    style="@style/button"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_span="2"
+                    android:layout_margin="1dp"
+                    android:text="@string/btnQue" />
+            </TableRow>
+        </TableLayout>
+        
+        </LinearLayout>
+    
+
+        
+    </LinearLayout>
+<lecho.lib.hellocharts.view.LineChartView
+            android:id="@+id/line_chart"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#ffffff" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btnQue"
+            style="@style/button_unchoose"
+            android:layout_weight="1"
+            android:text="@string/btnQue" />
+
+        <Button
+            android:id="@+id/btnCtr"
+            style="@style/button_unchoose"
+            android:layout_weight="1"
+            android:text="@string/btnCtr" />
+
+        <Button
+            android:id="@+id/btnSet"
+            style="@style/button_unchoose"
+            android:layout_weight="1"
+            android:text="@string/btnSet" />
+
+        <Button
+            android:id="@+id/btnHis"
+            style="@style/button_choose"
+            android:layout_weight="1"
+            android:text="@string/btnHis" />
+    </LinearLayout>
+
+</LinearLayout>

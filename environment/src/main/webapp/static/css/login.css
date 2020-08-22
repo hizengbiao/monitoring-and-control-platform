@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0px;padding:0px;}
+html{ overflow:hidden;}
+body{overflow:hidden;}
+img{border:0;}
+.clear{clear:both;}
+
+.outFrame{margin:0px auto;}
+.bj_3{margin:0px auto;padding:0px;background:url(bj_03.jpg) center no-repeat;min-width:1000px;min-height:768px;}
+.login_box{ background:url(sogin.png) no-repeat;width:355px;height:321px;position:absolute;left:63%;top:28%;}
+.input1{ height:30px;margin-left:41px;padding-top:56px;}
+.input2{ height:30px;margin-left:41px;margin-top:56px;}
+.inputer{border:#0096eb solid 0px;width:272px;height:34px;}
+.wjmm{float:left;margin-top:27px;margin-left:20px;}
+.go{ margin-left:120px;margin-top:65px;}
+.err{margin-top:10px;}

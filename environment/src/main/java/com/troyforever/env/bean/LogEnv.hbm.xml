@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-9-29 19:03:44 by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="com.troyforever.env.bean.LogEnv" dynamic-insert="true" table="log_env" catalog="application" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="type" type="java.lang.Integer">
+            <column name="type" length="6" not-null="true" />
+        </property>
+        <property name="value" type="java.lang.Double">
+            <column name="value" length="6" scale="2" not-null="true" />
+        </property>
+        <property name="time" type="timestamp">
+            <column name="time" default="CURRENT_TIMESTAMP" />
+        </property>
+
+        <many-to-one name="shed" class="com.troyforever.env.bean.Shed" fetch="select">
+            <column name="shedId" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

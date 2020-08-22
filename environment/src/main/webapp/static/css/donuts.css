@@ -1,0 +1,97 @@
+/* line 8, ../sass/donuts.scss */
+.donut {
+  position: relative;
+  display: inline-block;
+  font-size: 33px;
+  line-height: 1em;
+  height: 1em;
+  width: 2em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 17, ../sass/donuts.scss */
+.donut.donut-big {
+  font-size: 62px;
+}
+/* line 21, ../sass/donuts.scss */
+.donut.donut-small {
+  font-size: 17px;
+}
+/* line 25, ../sass/donuts.scss */
+.donut:before {
+  content: '';
+  position: absolute;
+  font-size: 100%;
+  height: 2em;
+  width: 2em;
+  line-height: 1em;
+  border: 0.22em solid #666666;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+  clip: rect(auto, auto, 1em, auto);
+}
+/* line 38, ../sass/donuts.scss */
+.donut .donut-arrow {
+  height: 1em;
+  width: .1em;
+  margin-left: -.05em;
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+/* line 49, ../sass/donuts.scss */
+.donut .donut-arrow, .donut .donut-arrow:before {
+  position: absolute;
+  display: inline-block;
+  background: #333;
+  left: 50%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 57, ../sass/donuts.scss */
+.donut .donut-arrow:before {
+  content: '';
+  height: .2em;
+  width: .2em;
+  bottom: -.1em;
+  margin-left: -.1em;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+}
+
+/* line 68, ../sass/donuts.scss */
+.red.donut:before {
+  border-color: #cc6866;
+}
+
+/* line 72, ../sass/donuts.scss */
+.orange.donut:before {
+  border-color: #cc8f66;
+}
+
+/* line 76, ../sass/donuts.scss */
+.yellow.donut:before {
+  border-color: #ccc366;
+}
+
+/* line 80, ../sass/donuts.scss */
+.green.donut:before {
+  border-color: #66cc74;
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="greenhouses">
+        <item>一号温室</item>
+        <item>二号温室</item>
+        <item>三号温室</item>
+        <item>四号温室</item>
+    </string-array>
+    <string-array name="typess">
+        <item>室内温度</item>
+        <item>湿度</item>
+        <item>光照</item>
+         <item>CO2浓度</item>
+          <item>室外温度</item>
+    </string-array>
+
+</resources>
